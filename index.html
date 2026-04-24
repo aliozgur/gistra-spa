@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gistra Snapshot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app-screen" class="screen active">
+    <header>
+      <div class="header-content">
+        <h1 id="app-title">Gistra Snapshot</h1>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search saved bookmarks..." />
+        </div>
+        <button id="theme-toggle" class="btn secondary outline">Toggle Theme</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div id="filter-backdrop" class="sheet-backdrop"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header hidden-desktop">
+          <h2>Filters</h2>
+          <span class="close-sheet-btn" id="close-sheet-btn">&times;</span>
+        </div>
+        <div class="filter-section">
+          <h3>Status</h3>
+          <ul class="filter-list" id="status-filters">
+            <li class="active" data-status="all">All</li>
+            <li data-status="todo">To-Do</li>
+            <li data-status="done">Done</li>
+          </ul>
+        </div>
+        <div class="filter-section">
+          <h3>Categories</h3>
+          <ul class="filter-list" id="category-filters">
+            <li class="skeleton">Loading...</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="bookmarks-header">
+          <h2 id="current-filter-title">All Bookmarks</h2>
+          <span class="count" id="bookmark-count">0</span>
+        </div>
+        <div class="grid" id="bookmarks-grid">
+          <div class="skeleton-details">Loading Snapshot...</div>
+        </div>
+        <div id="load-more-container" class="hidden" style="text-align: center; margin-top: 2rem;">
+          <button id="load-more-btn" class="btn secondary outline">Load More &darr;</button>
+        </div>
+        <div id="empty-state" class="empty-state hidden">
+          <p>No bookmarks found.</p>
+        </div>
+      </section>
+    </main>
+    
+    <button id="mobile-filter-fab" class="fab hidden-desktop">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+      </svg>
+    </button>
+  </div>
+
+  <div id="details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <div id="modal-body">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <script src="snapshot/snapshot_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
